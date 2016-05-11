@@ -1,2 +1,5 @@
 com\tuyano\libro\bootapp\App.class
+com\tuyano\libro\bootapp\MyDataRepository.class
+com\tuyano\libro\bootapp\Data.class
 com\tuyano\libro\bootapp\SampleController.class
+com\tuyano\libro\bootapp\MyData.class
