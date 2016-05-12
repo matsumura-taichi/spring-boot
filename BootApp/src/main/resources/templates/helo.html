@@ -1,19 +1,32 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>top page</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
+    table tr th { background-color: #000099; color: white; }
+    table tr td { background-color:#eeeeee; }
     p.msg { border:solid 1px lightgray; padding:10px; }
+    p.title { margin:0px 5px; font-weight:bold; }
+    p.memo { margin:0px 5px; }
     </style>
 </head>
 <body>
     <h1>Helo page</h1>
-    <p class="msg" th:text="${msg}" />
-    <ol>
-        <li th:text="${data.name}" />
-        <li th:text="${data.mail}" />
-        <li th:text="${data.tel}" />
-    </ol>
+<p th:text="${msg}" />
+<form method="post" action="/helo">
+    <input type="text" name="key" />
+    <input type="submit" value="検索" />
+</form>
+<hr />
+<table>
+    <tr><th>MongoDB Data</th></tr>
+    <tr th:each="data : ${datas}">
+        <td>
+        <p class="title" th:text="'「' + ${data.title} + '」'" />
+        <p class="memo" th:text="${data.memo} + '(' + ${data.dateStr} + ')'" />
+        </td>
+    </tr>
+</table>
 </body>
 </html>
